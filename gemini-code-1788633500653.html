@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Munmun Finance | Loan Application</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:#1f2937}
+.header{background:#123b70;color:#fff;text-align:center;padding:28px 15px}
+.logo{font-size:32px;font-weight:800;letter-spacing:1px}
+.powered{margin-top:6px;font-size:14px}.tagline{margin-top:12px;font-size:17px;font-weight:bold}
+.roi{margin-top:7px;font-size:14px}
+.contact{background:#fff;display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px;border-bottom:1px solid #ddd}
+.contact a{color:#123b70;text-decoration:none;font-weight:bold;padding:8px 12px}
+.container{max-width:1000px;margin:28px auto;padding:0 15px}
+.card{background:#fff;border-radius:14px;box-shadow:0 5px 20px rgba(0,0,0,.08);padding:30px}
+.progress{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:30px}
+.progress div{background:#e5e7eb;padding:10px 3px;text-align:center;border-radius:6px;font-size:11px;font-weight:bold}
+.progress .active{background:#123b70;color:#fff}
+.step{display:none}.step.active{display:block}
+h2{color:#123b70;margin-bottom:22px}.sub{color:#666;margin-bottom:20px;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.full{grid-column:1/-1}
+label{display:block;font-size:14px;font-weight:bold;margin-bottom:7px}
+.req{color:#d11}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:7px;font-size:15px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#123b70}
+textarea{min-height:95px;resize:vertical}
+.buttons{display:flex;justify-content:space-between;margin-top:30px}
+button{border:0;border-radius:7px;padding:13px 25px;font-size:15px;font-weight:bold;cursor:pointer}
+.next{background:#123b70;color:#fff}.back{background:#6b7280;color:#fff}.submit{background:#16803c;color:#fff}
+.info{background:#f8fafc;border-left:4px solid #123b70;padding:14px;margin-bottom:20px;font-size:14px;line-height:1.5}
+.doc{border:1px dashed #aab4c3;padding:18px;border-radius:8px;background:#fafcff}
+.doc label{margin-bottom:8px}
+.consent-item{display:flex;gap:10px;margin:15px 0;line-height:1.5;font-size:14px;font-weight:normal}
+.consent-item input{width:auto;margin-top:3px}
+.success{display:none;text-align:center}.success-icon{font-size:50px}
+.success h2{color:#16803c}.application-id{display:inline-block;margin:20px 0;padding:16px 25px;background:#eef5ff;border-radius:8px;color:#123b70;font-size:24px;font-weight:bold}
+.summary{text-align:left;background:#f8fafc;padding:20px;border-radius:8px;margin-top:20px;line-height:1.7}
+.footer{text-align:center;padding:30px 15px;color:#555;font-size:14px}.footer strong{color:#123b70}.small{font-size:12px;color:#666}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.card{padding:20px}.progress{grid-template-columns:repeat(4,1fr)}.progress div{font-size:9px}.logo{font-size:27px}}
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="logo">MUNMUN FINANCE</div>
+<div class="powered">Powered by Yash Sahu</div>
+<div class="tagline">All India Loan Provider</div>
+<div class="roi">All Types of Loans | ROI Starting From 7.15%*</div>
+</header>
+
+<div class="contact">
+<a href="tel:9522501269">📞 9522501269</a>
+<a href="https://wa.me/919522501269" target="_blank">💬 WhatsApp</a>
+<a href="mailto:munmunfinance285@gmail.com">✉ Email</a>
+<a href="https://instagram.com/munmun_finance" target="_blank">📷 @munmun_finance</a>
+</div>
+
+<div class="container"><div class="card">
+
+<div class="progress">
+<div class="active">Applicant</div><div>Loan</div><div>Income</div><div>Existing Loan</div><div>Asset</div><div>Documents</div><div>Consent</div>
+</div>
+
+<form id="loanForm">
+
+<section class="step active">
+<h2>1. Applicant Details</h2><p class="sub">Please enter your personal details correctly.</p>
+<div class="grid">
+<div><label>Full Name <span class="req">*</span></label><input name="name" required placeholder="Enter full name"></div>
+<div><label>Father / Husband Name <span class="req">*</span></label><input name="father_name" required placeholder="Enter name"></div>
+<div><label>Date of Birth <span class="req">*</span></label><input type="date" name="dob" required></div>
+<div><label>Gender <span class="req">*</span></label><select name="gender" required><option value="">Select Gender</option><option>Male</option><option>Female</option><option>Other</option></select></div>
+<div><label>Mobile Number <span class="req">*</span></label><input type="tel" name="mobile" maxlength="10" pattern="[0-9]{10}" required placeholder="10 digit mobile number"></div>
+<div><label>WhatsApp Number</label><input type="tel" name="whatsapp" maxlength="10" pattern="[0-9]{10}" placeholder="WhatsApp number"></div>
+<div><label>Email Address</label><input type="email" name="email" placeholder="example@email.com"></div>
+<div><label>PIN Code <span class="req">*</span></label><input name="pincode" maxlength="6" pattern="[0-9]{6}" required placeholder="6 digit PIN code"></div>
+<div class="full"><label>Residential Address <span class="req">*</span></label><textarea name="address" required placeholder="Enter complete address"></textarea></div>
+<div><label>City <span class="req">*</span></label><input name="city" required placeholder="Enter city"></div>
+<div><label>State <span class="req">*</span></label><select name="state" required><option value="">Select State</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Rajasthan</option><option>Gujarat</option><option>Uttar Pradesh</option><option>Delhi</option><option>Chhattisgarh</option><option>Bihar</option><option>Other</option></select></div>
+</div>
+<div class="buttons"><span></span><button type="button" class="next" onclick="nextStep()">Next →</button></div>
+</section>
+
+<section class="step">
+<h2>2. Loan Details</h2><p class="sub">Tell us about the loan you are looking for.</p>
+<div class="grid">
+<div><label>Loan Type <span class="req">*</span></label><select name="loan_type" required><option value="">Select Loan Type</option><option>Personal Loan</option><option>Business Loan</option><option>Home Loan</option><option>Loan Against Property</option><option>Vehicle Loan</option><option>Education Loan</option><option>Other</option></select></div>
+<div><label>Required Loan Amount (₹) <span class="req">*</span></label><input type="number" name="amount" min="1" required placeholder="Enter amount"></div>
+<div><label>Loan Tenure <span class="req">*</span></label><select name="tenure" required><option value="">Select Tenure</option><option>6 Months</option><option>12 Months</option><option>18 Months</option><option>24 Months</option><option>36 Months</option><option>48 Months</option><option>60 Months</option><option>72 Months</option><option>84 Months</option></select></div>
+<div><label>Preferred EMI Date</label><select name="emi_date"><option value="">Select Date</option><option>1st</option><option>5th</option><option>10th</option><option>15th</option><option>20th</option><option>25th</option></select></div>
+<div class="full"><label>Loan Purpose <span class="req">*</span></label><textarea name="purpose" required placeholder="Explain the purpose of the loan"></textarea></div>
+</div>
+<div class="buttons"><button type="button" class="back" onclick="prevStep()">← Back</button><button type="button" class="next" onclick="nextStep()">Next →</button></div>
+</section>
+
+<section class="step">
+<h2>3. Income / Business Details</h2>
+<div class="grid">
+<div><label>Occupation <span class="req">*</span></label><select name="profile" required><option value="">Select Occupation</option><option>Salaried</option><option>Self Employed</option><option>Business Owner</option><option>Professional</option><option>Other</option></select></div>
+<div><label>Company / Business Name</label><input name="company" placeholder="Enter company/business name"></div>
+<div><label>Monthly Income (₹) <span class="req">*</span></label><input type="number" name="income" min="0" required placeholder="Monthly income"></div>
+<div><label>Other Monthly Income (₹)</label><input type="number" name="other_income" min="0" placeholder="If applicable"></div>
+<div><label>Job / Business Experience</label><input name="experience" placeholder="Example: 3 Years"></div>
+<div><label>Monthly Business Turnover (₹)</label><input type="number" name="turnover" min="0" placeholder="If applicable"></div>
+<div class="full"><label>Office / Business Address</label><textarea name="office_address" placeholder="Enter business/office address"></textarea></div>
+</div>
+<div class="buttons"><button type="button" class="back" onclick="prevStep()">← Back</button><button type="button" class="next" onclick="nextStep()">Next →</button></div>
+</section>
+
+<section class="step">
+<h2>4. Existing Loan Details</h2>
+<div class="grid">
+<div><label>Do you have an existing loan? <span class="req">*</span></label><select name="existing_loan" required><option value="">Select</option><option>Yes</option><option>No</option></select></div>
+<div><label>Lender / Bank Name</label><input name="existing_bank" placeholder="Bank/NBFC name"></div>
+<div><label>Original Loan Amount (₹)</label><input type="number" name="existing_amount" min="0"></div>
+<div><label>Outstanding Amount (₹)</label><input type="number" name="outstanding_amount" min="0"></div>
+<div><label>Monthly EMI (₹)</label><input type="number" name="monthly_emi" min="0"></div>
+<div><label>Number of Active Loans</label><input type="number" name="active_loans" min="0"></div>
+</div>
+<div class="info">Please provide accurate information about existing loans.</div>
+<div class="buttons"><button type="button" class="back" onclick="prevStep()">← Back</button><button type="button" class="next" onclick="nextStep()">Next →</button></div>
+</section>
+
+<section class="step">
+<h2>5. Property / Asset Details</h2>
+<div class="grid">
+<div><label>Property / Asset Type</label><select name="asset_type"><option value="">Select</option><option>House</option><option>Flat</option><option>Land</option><option>Shop</option><option>Office</option><option>Vehicle</option><option>Other</option></select></div>
+<div><label>Ownership</label><select name="asset_ownership"><option value="">Select</option><option>Self Owned</option><option>Family Owned</option><option>Jointly Owned</option><option>Other</option></select></div>
+<div><label>Estimated Value (₹)</label><input type="number" name="asset_value" min="0" placeholder="Estimated value"></div>
+<div><label>Existing Mortgage?</label><select name="asset_mortgage"><option value="">Select</option><option>Yes</option><option>No</option></select></div>
+<div class="full"><label>Property / Asset Address</label><textarea name="asset_address" placeholder="Enter property/asset address"></textarea></div>
+</div>
+<div class="buttons"><button type="button" class="back" onclick="prevStep()">← Back</button><button type="button" class="next" onclick="nextStep()">Next →</button></div>
+</section>
+
+<section class="step">
+<h2>6. Documents Upload</h2>
+<div class="info">Upload clear and readable documents. Accepted formats: JPG, JPEG, PNG and PDF.</div>
+<div class="grid">
+<div class="doc"><label>Aadhaar Card</label><input type="file" accept=".jpg,.jpeg,.png,.pdf"></div>
+<div class="doc"><label>PAN Card</label><input type="file" accept=".jpg,.jpeg,.png,.pdf"></div>
+<div class="doc"><label>Address Proof</label><input type="file" accept=".jpg,.jpeg,.png,.pdf"></div>
+<div class="doc"><label>Income Proof</label><input type="file" accept=".jpg,.jpeg,.png,.pdf"></div>
+<div class="doc"><label>Bank Statement</label><input type="file" accept=".jpg,.jpeg,.png,.pdf"></div>
+<div class="doc"><label>Property Documents</label><input type="file" accept=".jpg,.jpeg,.png,.pdf"></div>
+<div class="doc full"><label>Other Documents</label><input type="file" accept=".jpg,.jpeg,.png,.pdf"></div>
+</div>
+<div class="buttons"><button type="button" class="back" onclick="prevStep()">← Back</button><button type="button" class="next" onclick="nextStep()">Next →</button></div>
+</section>
+
+<section class="step">
+<h2>7. Declaration & Consent</h2>
+<div class="info">Loan approval, interest rate and terms are subject to eligibility, verification and applicable conditions.</div>
+<label class="consent-item"><input type="checkbox" required><span>I confirm that the information provided in this application is true and correct.</span></label>
+<label class="consent-item"><input type="checkbox" required><span>I authorize Munmun Finance and its authorized representatives to verify the information and documents submitted for this application.</span></label>
+<label class="consent-item"><input type="checkbox" required><span>I understand that submitting this application does not guarantee loan approval.</span></label>
+<div class="buttons"><button type="button" class="back" onclick="prevStep()">← Back</button><button type="submit" class="submit">SUBMIT APPLICATION</button></div>
+</section>
+
+</form>
+
+<div class="success" id="success">
+<div class="success-icon">✓</div>
+<h2>Application Submitted</h2>
+<p>Your loan application has been received.</p>
+<div class="application-id" id="applicationId"></div>
+<p>Please save this Application ID for future reference.</p>
+<div class="summary">
+<p><strong>Munmun Finance</strong></p>
+<p>Powered by Yash Sahu</p>
+<p>Founder / Owner: Yash Sahu</p>
+<p>Mobile: 9522501269</p>
+<p>WhatsApp: 9522501269</p>
+<p>Email: munmunfinance285@gmail.com</p>
+<p>Instagram: @munmun_finance</p>
+</div>
+<br>
+<button class="next" onclick="location.reload()">New Application</button>
+<button class="back" style="margin-left:8px" onclick="viewSavedApplications()">View Saved Applications</button>
+</div>
+
+</div></div>
+
+<div id="adminPanel" style="display:none;max-width:1000px;margin:20px auto;padding:20px;background:#fff;border-radius:14px;box-shadow:0 5px 20px rgba(0,0,0,.08)">
+  <h2 style="color:#123b70;margin-bottom:15px">Saved Applications</h2>
+  <div id="savedList"></div>
+</div>
+
+<footer class="footer">
+<p><strong>MUNMUN FINANCE</strong></p>
+<p>Powered by Yash Sahu | Founder / Owner: Yash Sahu</p>
+<p>All India Loan Provider | All Types of Loans</p>
+<p>ROI Starting From 7.15%*</p>
+<p>Mobile: 9522501269 | WhatsApp: 9522501269</p>
+<p>munmunfinance285@gmail.com | Sahuyash285@gmail.com</p>
+<p>Instagram: @munmun_finance</p>
+</footer>
+
+<script>
+let currentStep=0;
+const steps=document.querySelectorAll(".step");
+const progress=document.querySelectorAll(".progress div");
+
+function showStep(i){
+ steps.forEach((s,n)=>s.classList.toggle("active",n===i));
+ progress.forEach((p,n)=>p.classList.toggle("active",n===i));
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function valid(){
+ const fields = steps[currentStep].querySelectorAll("input[required], select[required], textarea[required]");
+ for(const f of fields){
+   if(!f.checkValidity()){
+     f.reportValidity();
+     return false;
+   }
+ }
+ return true;
+}
+
+function nextStep(){
+ if(valid() && currentStep < steps.length - 1){
+   currentStep++;
+   showStep(currentStep);
+ }
+}
+
+function prevStep(){
+ if(currentStep > 0){
+   currentStep--;
+   showStep(currentStep);
+ }
+}
+
+document.getElementById("loanForm").addEventListener("submit", async function(e){
+ e.preventDefault();
+ if(!valid()) return;
+
+ const id = "MF" + new Date().getFullYear() + Math.floor(100000 + Math.random() * 900000);
+ const fd = new FormData(document.getElementById("loanForm"));
+ const data = { applicationId: id, submittedAt: new Date().toLocaleString("en-IN") };
+
+ for(const [key, value] of fd.entries()){
+   if(!(value instanceof File)){
+     data[key] = value;
+   }
+ }
+
+ // Save in Local Storage
+ const existing = JSON.parse(localStorage.getItem("munmunApplications") || "[]");
+ existing.push(data);
+ localStorage.setItem("munmunApplications", JSON.stringify(existing));
+
+ // Complete Application Message for Email & WhatsApp
+ const fullDetailsText = `
+📌 FULL LOAN APPLICATION DETAILS
+----------------------------------
+Application ID: ${id}
+Submitted Date: ${data.submittedAt}
+
+1. APPLICANT DETAILS:
+• Full Name: ${data.name || 'N/A'}
+• Father/Husband Name: ${data.father_name || 'N/A'}
+• Date of Birth: ${data.dob || 'N/A'}
+• Gender: ${data.gender || 'N/A'}
+• Mobile Number: ${data.mobile || 'N/A'}
+• WhatsApp Number: ${data.whatsapp || 'N/A'}
+• Email: ${data.email || 'N/A'}
+• Residential Address: ${data.address || 'N/A'}
+• City: ${data.city || 'N/A'}
+• State: ${data.state || 'N/A'}
+• PIN Code: ${data.pincode || 'N/A'}
+
+2. LOAN DETAILS:
+• Loan Type: ${data.loan_type || 'N/A'}
+• Required Loan Amount: ₹${data.amount || 'N/A'}
+• Loan Tenure: ${data.tenure || 'N/A'}
+• Preferred EMI Date: ${data.emi_date || 'N/A'}
+• Loan Purpose: ${data.purpose || 'N/A'}
+
+3. INCOME / BUSINESS DETAILS:
+• Occupation: ${data.profile || 'N/A'}
+• Company/Business Name: ${data.company || 'N/A'}
+• Monthly Income: ₹${data.income || 'N/A'}
+• Other Monthly Income: ₹${data.other_income || 'N/A'}
+• Experience: ${data.experience || 'N/A'}
+• Business Turnover: ₹${data.turnover || 'N/A'}
+• Office/Business Address: ${data.office_address || 'N/A'}
+
+4. EXISTING LOAN DETAILS:
+• Has Existing Loan?: ${data.existing_loan || 'N/A'}
+• Lender/Bank Name: ${data.existing_bank || 'N/A'}
+• Original Loan Amount: ₹${data.existing_amount || 'N/A'}
+• Outstanding Amount: ₹${data.outstanding_amount || 'N/A'}
+• Monthly EMI: ₹${data.monthly_emi || 'N/A'}
+• Active Loans Count: ${data.active_loans || 'N/A'}
+
+5. PROPERTY / ASSET DETAILS:
+• Asset Type: ${data.asset_type || 'N/A'}
+• Ownership: ${data.asset_ownership || 'N/A'}
+• Estimated Value: ₹${data.asset_value || 'N/A'}
+• Existing Mortgage?: ${data.asset_mortgage || 'N/A'}
+• Property Address: ${data.asset_address || 'N/A'}
+`;
+
+ // Send Full Details via Web3Forms Email API
+ try {
+   await fetch("https://api.web3forms.com/submit", {
+     method: "POST",
+     headers: { "Content-Type": "application/json" },
+     body: JSON.stringify({
+       access_key: "12ddaca6-2965-420e-ba81-f97da7f99e39",
+       subject: `New Loan Application: ${data.name || 'Customer'} (${id})`,
+       from_name: "Munmun Finance Portal",
+       to_email: "sahuyash285@gmail.com, munmunfinance285@gmail.com",
+       message: fullDetailsText
+     })
+   });
+ } catch(err) {
+   console.log("Email error:", err);
+ }
+
+ // Redirect to WhatsApp with Full Details Message
+ window.open(`https://wa.me/919522501269?text=${encodeURIComponent(fullDetailsText)}`, "_blank");
+
+ // UI Success Display
+ document.getElementById("applicationId").textContent = "Application ID: " + id;
+ document.getElementById("loanForm").style.display = "none";
+ document.querySelector(".progress").style.display = "none";
+ document.getElementById("success").style.display = "block";
+ window.scrollTo({top: 0, behavior: "smooth"});
+});
+
+function viewSavedApplications(){
+ const apps=JSON.parse(localStorage.getItem("munmunApplications")||"[]");
+ const panel=document.getElementById("adminPanel");
+ const list=document.getElementById("savedList");
+ panel.style.display="block";
+ if(!apps.length){
+   list.innerHTML="<p>No applications saved in this browser yet.</p>";
+   return;
+ }
+ let html='<div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:14px"><tr><th style="text-align:left;padding:10px;border-bottom:1px solid #ddd">App ID</th><th style="text-align:left;padding:10px;border-bottom:1px solid #ddd">Customer</th><th style="text-align:left;padding:10px;border-bottom:1px solid #ddd">Mobile</th><th style="text-align:left;padding:10px;border-bottom:1px solid #ddd">Loan</th><th style="text-align:left;padding:10px;border-bottom:1px solid #ddd">Amount</th></tr>';
+ apps.slice().reverse().forEach(a=>{
+   html+='<tr><td style="padding:10px;border-bottom:1px solid #eee">'+(a.applicationId||"")+'</td><td style="padding:10px;border-bottom:1px solid #eee">'+(a.name||"")+'</td><td style="padding:10px;border-bottom:1px solid #eee">'+(a.mobile||"")+'</td><td style="padding:10px;border-bottom:1px solid #eee">'+(a.loan_type||"")+'</td><td style="padding:10px;border-bottom:1px solid #eee">'+(a.amount||"")+'</td></tr>';
+ });
+ html+='</table></div><br><button class="back" onclick="localStorage.removeItem(\'munmunApplications\');viewSavedApplications()">Clear Saved Data</button>';
+ list.innerHTML=html;
+}
+
+showStep(0);
+</script>
+</body>
+</html>
